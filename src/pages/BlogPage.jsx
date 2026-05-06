@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { blogs } from '../data/blogs';
+import { getImagePath } from '../utils/imageUtils';
 
 export default function BlogPage() {
   const featured = blogs[0];
@@ -18,7 +19,7 @@ export default function BlogPage() {
         {/* Featured */}
         <Link to={`/blog/${featured.slug}`} className="card" data-aos="fade-up" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', marginBottom: 'var(--space-3xl)', overflow: 'hidden', textDecoration: 'none', color: 'inherit' }}>
           <div style={{ height: 350, background: 'var(--color-gray-100)', overflow: 'hidden' }}>
-            <img src={featured.image} alt={featured.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src={getImagePath(featured.image)} alt={featured.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <div style={{ padding: 'var(--space-2xl)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <span className="badge badge-primary" style={{ alignSelf: 'flex-start', marginBottom: 'var(--space-md)' }}>{featured.category}</span>
@@ -37,7 +38,7 @@ export default function BlogPage() {
           {rest.map((blog, idx) => (
             <Link to={`/blog/${blog.slug}`} key={blog.id} className="card" data-aos="fade-up" data-aos-delay={idx * 100} style={{ textDecoration: 'none', color: 'inherit' }}>
               <div style={{ height: 200, background: 'var(--color-gray-100)', overflow: 'hidden' }}>
-                <img src={blog.image} alt={blog.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform var(--transition-slow)' }} />
+                <img src={getImagePath(blog.image)} alt={blog.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform var(--transition-slow)' }} />
               </div>
               <div className="card-body">
                 <span className="badge badge-primary" style={{ marginBottom: 'var(--space-sm)' }}>{blog.category}</span>

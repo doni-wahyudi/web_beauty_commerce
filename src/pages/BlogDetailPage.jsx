@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { getBlogBySlug, blogs } from '../data/blogs';
+import { getImagePath } from '../utils/imageUtils';
 
 export default function BlogDetailPage() {
   const { slug } = useParams();
@@ -28,7 +29,7 @@ export default function BlogDetailPage() {
           </div>
 
           <div style={{ borderRadius: 'var(--radius-xl)', overflow: 'hidden', marginBottom: 'var(--space-2xl)', height: 400, background: 'var(--color-gray-100)' }}>
-            <img src={blog.image} alt={blog.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src={getImagePath(blog.image)} alt={blog.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
 
           <div className="blog-content" style={{ fontSize: 'var(--fs-md)', lineHeight: 'var(--lh-relaxed)', color: 'var(--color-gray-700)' }} dangerouslySetInnerHTML={{ __html: blog.content }}></div>
@@ -47,7 +48,7 @@ export default function BlogDetailPage() {
               {related.map(b => (
                 <Link to={`/blog/${b.slug}`} key={b.id} className="card" style={{ textDecoration: 'none', color: 'inherit' }}>
                   <div style={{ height: 180, background: 'var(--color-gray-100)', overflow: 'hidden' }}>
-                    <img src={b.image} alt={b.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img src={getImagePath(b.image)} alt={b.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </div>
                   <div className="card-body">
                     <h3 style={{ fontSize: 'var(--fs-sm)', fontFamily: 'var(--font-body)' }}>{b.title}</h3>

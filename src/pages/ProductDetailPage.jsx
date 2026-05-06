@@ -6,6 +6,7 @@ import { useCart } from '../contexts/CartContext';
 import { useWishlist } from '../contexts/WishlistContext';
 import { useToast } from '../contexts/ToastContext';
 import { useAuth } from '../contexts/AuthContext';
+import { getImagePath } from '../utils/imageUtils';
 import ProductCard from '../components/product/ProductCard';
 import './ProductDetailPage.css';
 
@@ -72,7 +73,7 @@ export default function ProductDetailPage() {
           {/* Gallery */}
           <div className="product-gallery" data-aos="fade-right">
             <div className="gallery-main">
-              <img src={product.images[selectedImage]} alt={product.name} />
+              <img src={getImagePath(product.images[selectedImage])} alt={product.name} />
               {product.discount > 0 && (
                 <span className="badge badge-error gallery-badge">-{product.discount}%</span>
               )}
@@ -85,7 +86,7 @@ export default function ProductDetailPage() {
                     className={`gallery-thumb ${selectedImage === idx ? 'active' : ''}`}
                     onClick={() => setSelectedImage(idx)}
                   >
-                    <img src={img} alt={`${product.name} ${idx + 1}`} />
+                    <img src={getImagePath(img)} alt={`${product.name} ${idx + 1}`} />
                   </button>
                 ))}
               </div>

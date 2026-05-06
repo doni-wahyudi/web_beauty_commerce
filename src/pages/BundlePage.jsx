@@ -4,6 +4,7 @@ import { getProductById, formatPrice } from '../data/products';
 import { useCart } from '../contexts/CartContext';
 import { useToast } from '../contexts/ToastContext';
 import { useAuth } from '../contexts/AuthContext';
+import { getImagePath } from '../utils/imageUtils';
 import './BundlePage.css';
 
 export default function BundlePage() {
@@ -40,7 +41,7 @@ export default function BundlePage() {
           {bundles.map((bundle, idx) => (
             <div key={bundle.id} className="bundle-card" data-aos="fade-up" data-aos-delay={idx * 100}>
               <div className="bundle-image">
-                <img src={bundle.image} alt={bundle.name} />
+                <img src={getImagePath(bundle.image)} alt={bundle.name} />
                 <span className="bundle-tag">{bundle.tag}</span>
                 <span className="bundle-discount">-{bundle.discountPercent}%</span>
               </div>
@@ -53,7 +54,7 @@ export default function BundlePage() {
                     const p = getProductById(pid);
                     return p ? (
                       <Link to={`/produk/${p.slug}`} key={pid} className="bundle-product-item">
-                        <img src={p.images[0]} alt={p.name} />
+                        <img src={getImagePath(p.images[0])} alt={p.name} />
                         <div>
                           <span>{p.name}</span>
                           <small>{formatPrice(p.price)}</small>

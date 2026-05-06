@@ -4,6 +4,7 @@ import ProductCard from '../components/product/ProductCard';
 import { products, getBestSellers, getNewProducts, getDiscountedProducts, formatPrice } from '../data/products';
 import { categories } from '../data/categories';
 import { testimonials, reviews } from '../data/reviews';
+import { getImagePath } from '../utils/imageUtils';
 import './HomePage.css';
 
 export default function HomePage() {
@@ -75,7 +76,7 @@ export default function HomePage() {
           </div>
           <div className="hero-visual" data-aos="fade-left" data-aos-delay="200">
             <div className="hero-image-container">
-              <img src="/images/hero-main.jpg" alt="GlowMart Beauty Products" className="hero-image" />
+              <img src={getImagePath('/images/hero-main.jpg')} alt="GlowMart Beauty Products" className="hero-image" />
               <div className="hero-floating-card card-1 animate-float">
                 <span className="floating-emoji">🧴</span>
                 <div>
@@ -147,7 +148,7 @@ export default function HomePage() {
               <Link to="/bundle" className="btn btn-dark btn-lg">Lihat Paket</Link>
             </div>
             <div className="promo-banner-visual" data-aos="fade-left" data-aos-delay="200">
-              <img src="/images/promo-banner.jpg" alt="Promo GlowMart" />
+              <img src={getImagePath('/images/promo-banner.jpg')} alt="Promo GlowMart" />
             </div>
           </div>
         </div>

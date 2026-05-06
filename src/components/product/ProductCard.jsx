@@ -4,6 +4,7 @@ import { useWishlist } from '../../contexts/WishlistContext';
 import { useToast } from '../../contexts/ToastContext';
 import { useAuth } from '../../contexts/AuthContext';
 import { formatPrice } from '../../data/products';
+import { getImagePath } from '../../utils/imageUtils';
 import './ProductCard.css';
 
 export default function ProductCard({ product, aosDelay }) {
@@ -56,7 +57,7 @@ export default function ProductCard({ product, aosDelay }) {
       data-aos-delay={aosDelay || 0}
     >
       <div className="product-card-image">
-        <img src={product.images[0]} alt={product.name} loading="lazy" />
+        <img src={getImagePath(product.images[0])} alt={product.name} loading="lazy" />
         
         {/* Badges */}
         <div className="product-card-badges">
