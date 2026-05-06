@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { getImagePath } from '../utils/imageUtils';
 
 export default function AboutPage() {
   return (
@@ -29,7 +30,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div style={{ borderRadius: 'var(--radius-2xl)', overflow: 'hidden', height: 400, background: 'var(--color-gray-100)' }} data-aos="fade-left">
-            <img src="/images/about-story.jpg" alt="GlowMart Story" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src={getImagePath('/images/about-story.jpg')} alt="GlowMart Story" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
         </div>
       </div>

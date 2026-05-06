@@ -77,20 +77,6 @@ export default function HomePage() {
           <div className="hero-visual" data-aos="fade-left" data-aos-delay="200">
             <div className="hero-image-container">
               <img src={getImagePath('/images/hero-main.jpg')} alt="GlowMart Beauty Products" className="hero-image" />
-              <div className="hero-floating-card card-1 animate-float">
-                <span className="floating-emoji">🧴</span>
-                <div>
-                  <strong>Best Seller</strong>
-                  <small>Radiant Glow Serum</small>
-                </div>
-              </div>
-              <div className="hero-floating-card card-2 animate-float" style={{animationDelay: '1s'}}>
-                <span className="floating-emoji">⭐</span>
-                <div>
-                  <strong>4.9/5</strong>
-                  <small>1000+ ulasan</small>
-                </div>
-              </div>
             </div>
           </div>
         </div>
