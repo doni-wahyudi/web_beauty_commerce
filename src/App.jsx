@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { AuthProvider } from './contexts/AuthContext';
 import { CartProvider } from './contexts/CartContext';
@@ -100,7 +100,7 @@ function AppLayout() {
             <div className="container" style={{ padding: '100px 0', textAlign: 'center' }}>
               <h1 style={{ fontSize: 'var(--fs-4xl)', marginBottom: 'var(--space-md)' }}>404</h1>
               <p style={{ color: 'var(--color-gray-500)', marginBottom: 'var(--space-xl)' }}>Halaman tidak ditemukan</p>
-              <a href="/" className="btn btn-primary">Kembali ke Beranda</a>
+              <Link to="/" className="btn btn-primary">Kembali ke Beranda</Link>
             </div>
           } />
         </Routes>
@@ -112,7 +112,7 @@ function AppLayout() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/web_beauty_commerce">
       <AuthProvider>
         <CartProvider>
           <WishlistProvider>
