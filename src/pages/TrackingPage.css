@@ -1,0 +1,122 @@
+/* Tracking Page */
+.tracking-card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.tracking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-gray-200);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.tracking-header h3 { font-family: var(--font-body); margin-bottom: var(--space-sm); }
+
+.tracking-courier {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: var(--fs-sm);
+  color: var(--color-gray-500);
+  text-align: right;
+}
+
+/* Timeline */
+.tracking-timeline {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: var(--space-2xl);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: var(--space-xl);
+  padding-left: var(--space-lg);
+}
+
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 12px;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-gray-200);
+}
+
+.timeline-item:last-child::before { display: none; }
+
+.timeline-dot {
+  position: absolute;
+  left: -37px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  background: var(--color-gray-300);
+  border: 3px solid var(--color-cream);
+}
+
+.timeline-item.active .timeline-dot {
+  background: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(183,110,121,0.2);
+}
+
+.timeline-date {
+  font-size: var(--fs-xs);
+  color: var(--color-gray-400);
+  margin-bottom: 4px;
+}
+
+.timeline-content strong {
+  font-size: var(--fs-sm);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.timeline-content p {
+  font-size: var(--fs-sm);
+  color: var(--color-gray-500);
+}
+
+/* Info */
+.tracking-info {
+  background: var(--color-gray-100);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.tracking-info h4 {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-gray-500);
+  margin-bottom: var(--space-md);
+}
+
+.tracking-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+
+.tracking-detail-grid span {
+  font-size: var(--fs-xs);
+  color: var(--color-gray-500);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.tracking-detail-grid strong {
+  font-size: var(--fs-sm);
+}
