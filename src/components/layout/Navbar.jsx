@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCart } from '../../contexts/CartContext';
 import { useWishlist } from '../../contexts/WishlistContext';
 import { useAuth } from '../../contexts/AuthContext';
@@ -14,6 +14,7 @@ export default function Navbar() {
   const { wishlistCount } = useWishlist();
   const { isAuthenticated, user } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -105,7 +106,7 @@ export default function Navbar() {
                     e.preventDefault();
                     if (searchQuery.trim()) {
                       // Navigate to kategori with search query
-                      window.location.href = `/kategori?search=${encodeURIComponent(searchQuery.trim())}`;
+                      navigate(`/kategori?search=${encodeURIComponent(searchQuery.trim())}`);
                     }
                   }}
                 >

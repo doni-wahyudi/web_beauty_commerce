@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation, Link } from 'react-router-dom';
+import { HashRouter, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { AuthProvider } from './contexts/AuthContext';
 import { CartProvider } from './contexts/CartContext';
@@ -112,7 +112,7 @@ function AppLayout() {
 
 export default function App() {
   return (
-    <BrowserRouter basename="/web_beauty_commerce">
+    <HashRouter>
       <AuthProvider>
         <CartProvider>
           <WishlistProvider>
@@ -122,6 +122,6 @@ export default function App() {
           </WishlistProvider>
         </CartProvider>
       </AuthProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
