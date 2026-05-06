@@ -3,9 +3,9 @@ export const getImagePath = (path) => {
   if (!path) return '';
   if (path.startsWith('http')) return path;
   
-  // Runtime detection for GitHub Pages
-  const isGithubPages = window.location.hostname.includes('github.io');
-  const prefix = isGithubPages ? '/web_beauty_commerce' : '';
+  // Runtime detection for GitHub Pages vs Custom Domain
+  const isGithubSubdir = window.location.hostname.includes('github.io') && window.location.pathname.includes('/web_beauty_commerce');
+  const prefix = isGithubSubdir ? '/web_beauty_commerce' : '';
   
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   return `${prefix}${cleanPath}`;
